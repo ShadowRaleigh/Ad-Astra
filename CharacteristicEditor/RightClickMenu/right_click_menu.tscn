@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://dp4iypbcpw66y"]
+
+[ext_resource type="Script" uid="uid://cx85vt62pbgvh" path="res://CharacteristicEditor/RightClickMenu/right_click_menu.gd" id="1_cmwck"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iunut"]
+bg_color = Color(0.69965345, 0.69965345, 0.69965345, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.1584723, 0.15847233, 0.15847224, 1)
+
+[node name="RightClickMenu" type="PanelContainer" unique_id=955508393]
+theme_override_styles/panel = SubResource("StyleBoxFlat_iunut")
+script = ExtResource("1_cmwck")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=601642692]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ButtonContainer" type="VBoxContainer" parent="MarginContainer" unique_id=278101054]
+unique_name_in_owner = true
+layout_mode = 2

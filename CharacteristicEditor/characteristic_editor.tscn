@@ -1,0 +1,308 @@
+[gd_scene format=3 uid="uid://dhhkt28qe5xgi"]
+
+[ext_resource type="Script" uid="uid://sl8mbyihivx8" path="res://CharacteristicEditor/characteristic_editor.gd" id="1_script"]
+[ext_resource type="Script" uid="uid://y54l21vn55mk" path="res://Foundation/Components/context_menu_handler.gd" id="2_arred"]
+[ext_resource type="Script" uid="uid://bjovniytfgcdx" path="res://CharacteristicEditor/Components/characteristic_action_executor.gd" id="3_cptal"]
+[ext_resource type="PackedScene" uid="uid://dp4iypbcpw66y" path="res://CharacteristicEditor/RightClickMenu/right_click_menu.tscn" id="3_kreb3"]
+[ext_resource type="Script" uid="uid://bcwvq3cqf0cbm" path="res://CharacteristicEditor/Components/tag_editor_controller.gd" id="4_tageditor"]
+[ext_resource type="Script" uid="uid://elo4adoxdjj2" path="res://CharacteristicEditor/Components/rule_editor_controller.gd" id="5_ruleeditor"]
+[ext_resource type="Script" uid="uid://c0oacgi1ofa4c" path="res://CharacteristicEditor/Components/file_browser_controller.gd" id="6_filebrowser"]
+
+[node name="CharacteristicEditor" type="Control" unique_id=1455013742 node_paths=PackedStringArray("tag_editor", "rule_editor", "file_browser", "context_menu_handler", "characteristic_action_executor")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_script")
+tag_editor = NodePath("TagEditorController")
+rule_editor = NodePath("RuleEditorController")
+file_browser = NodePath("FileBrowserController")
+context_menu_handler = NodePath("ContextMenuHandler")
+characteristic_action_executor = NodePath("CharacteristicActionExecutor")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1797056658]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sidebar" type="VBoxContainer" parent="HBoxContainer" unique_id=1134060777]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/Sidebar" unique_id=1488859008]
+layout_mode = 2
+text = "Características Salvas"
+
+[node name="FileList" type="Tree" parent="HBoxContainer/Sidebar" unique_id=242885962]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+allow_rmb_select = true
+select_mode = 2
+
+[node name="HBoxButtons" type="HBoxContainer" parent="HBoxContainer/Sidebar" unique_id=346059354]
+layout_mode = 2
+
+[node name="NewFolderButton" type="Button" parent="HBoxContainer/Sidebar/HBoxButtons" unique_id=346059355]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Nova Pasta"
+
+[node name="NewButton" type="Button" parent="HBoxContainer/Sidebar/HBoxButtons" unique_id=246059353]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Nova Caract."
+
+[node name="MainPanel" type="MarginContainer" parent="HBoxContainer" unique_id=567733716]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="ScrollContainer" type="ScrollContainer" parent="HBoxContainer/MainPanel" unique_id=971098091]
+layout_mode = 2
+
+[node name="Form" type="VBoxContainer" parent="HBoxContainer/MainPanel/ScrollContainer" unique_id=1967149533]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 10
+
+[node name="LabelTitle" type="Label" parent="HBoxContainer/MainPanel/ScrollContainer/Form" unique_id=1142113563]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Editor de Característica"
+
+[node name="HSeparator" type="HSeparator" parent="HBoxContainer/MainPanel/ScrollContainer/Form" unique_id=477256060]
+layout_mode = 2
+
+[node name="LabelName" type="Label" parent="HBoxContainer/MainPanel/ScrollContainer/Form" unique_id=1416257613]
+layout_mode = 2
+text = "Nome"
+
+[node name="NameInput" type="LineEdit" parent="HBoxContainer/MainPanel/ScrollContainer/Form" unique_id=36139766]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="LabelDesc" type="Label" parent="HBoxContainer/MainPanel/ScrollContainer/Form" unique_id=1356568731]
+layout_mode = 2
+text = "Descrição"
+
+[node name="DescriptionInput" type="TextEdit" parent="HBoxContainer/MainPanel/ScrollContainer/Form" unique_id=1480201336]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+wrap_mode = 1
+
+[node name="LabelType" type="Label" parent="HBoxContainer/MainPanel/ScrollContainer/Form" unique_id=166084206]
+layout_mode = 2
+text = "Tipo"
+
+[node name="TypeOption" type="OptionButton" parent="HBoxContainer/MainPanel/ScrollContainer/Form" unique_id=1629462719]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 2
+
+[node name="HBoxTiers" type="HBoxContainer" parent="HBoxContainer/MainPanel/ScrollContainer/Form" unique_id=588738172]
+layout_mode = 2
+
+[node name="VBoxMin" type="VBoxContainer" parent="HBoxContainer/MainPanel/ScrollContainer/Form/HBoxTiers" unique_id=1716042942]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LabelMin" type="Label" parent="HBoxContainer/MainPanel/ScrollContainer/Form/HBoxTiers/VBoxMin" unique_id=200706757]
+layout_mode = 2
+text = "Tier Mínimo"
+
+[node name="MinTierInput" type="SpinBox" parent="HBoxContainer/MainPanel/ScrollContainer/Form/HBoxTiers/VBoxMin" unique_id=470357343]
+unique_name_in_owner = true
+layout_mode = 2
+min_value = 1.0
+max_value = 5.0
+value = 1.0
+
+[node name="VBoxMax" type="VBoxContainer" parent="HBoxContainer/MainPanel/ScrollContainer/Form/HBoxTiers" unique_id=1004130305]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LabelMax" type="Label" parent="HBoxContainer/MainPanel/ScrollContainer/Form/HBoxTiers/VBoxMax" unique_id=1080430644]
+layout_mode = 2
+text = "Tier Máximo"
+
+[node name="MaxTierInput" type="SpinBox" parent="HBoxContainer/MainPanel/ScrollContainer/Form/HBoxTiers/VBoxMax" unique_id=1235822582]
+unique_name_in_owner = true
+layout_mode = 2
+min_value = 1.0
+max_value = 5.0
+value = 5.0
+
+[node name="HBoxCosts" type="HBoxContainer" parent="HBoxContainer/MainPanel/ScrollContainer/Form" unique_id=641846848]
+layout_mode = 2
+
+[node name="VBoxMat" type="VBoxContainer" parent="HBoxContainer/MainPanel/ScrollContainer/Form/HBoxCosts" unique_id=1697830942]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LabelMat" type="Label" parent="HBoxContainer/MainPanel/ScrollContainer/Form/HBoxCosts/VBoxMat" unique_id=1685669722]
+layout_mode = 2
+text = "Custo Material"
+
+[node name="MaterialCostInput" type="LineEdit" parent="HBoxContainer/MainPanel/ScrollContainer/Form/HBoxCosts/VBoxMat" unique_id=1872516059]
+unique_name_in_owner = true
+layout_mode = 2
+placeholder_text = "Material..."
+
+[node name="VBoxFactor" type="VBoxContainer" parent="HBoxContainer/MainPanel/ScrollContainer/Form/HBoxCosts" unique_id=1289712678]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LabelFactor" type="Label" parent="HBoxContainer/MainPanel/ScrollContainer/Form/HBoxCosts/VBoxFactor" unique_id=2061819543]
+layout_mode = 2
+text = "Fator de Custo"
+
+[node name="CostFactorInput" type="SpinBox" parent="HBoxContainer/MainPanel/ScrollContainer/Form/HBoxCosts/VBoxFactor" unique_id=1001301962]
+unique_name_in_owner = true
+layout_mode = 2
+min_value = -10.0
+max_value = 10.0
+step = 0.01
+value = 1.0
+
+[node name="HSeparator2" type="HSeparator" parent="HBoxContainer/MainPanel/ScrollContainer/Form" unique_id=1696383276]
+layout_mode = 2
+
+[node name="TagsVBox" type="VBoxContainer" parent="HBoxContainer/MainPanel/ScrollContainer/Form" unique_id=980700753]
+layout_mode = 2
+
+[node name="TagsLabel" type="Label" parent="HBoxContainer/MainPanel/ScrollContainer/Form/TagsVBox" unique_id=648921565]
+layout_mode = 2
+text = "Tags da Característica"
+
+[node name="TagsInputHBox" type="HBoxContainer" parent="HBoxContainer/MainPanel/ScrollContainer/Form/TagsVBox" unique_id=1231106512]
+layout_mode = 2
+
+[node name="TagOption" type="OptionButton" parent="HBoxContainer/MainPanel/ScrollContainer/Form/TagsVBox/TagsInputHBox" unique_id=1600032379]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="AddTagButton" type="Button" parent="HBoxContainer/MainPanel/ScrollContainer/Form/TagsVBox/TagsInputHBox" unique_id=1641899040]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Adicionar Tag"
+
+[node name="TagsList" type="ItemList" parent="HBoxContainer/MainPanel/ScrollContainer/Form/TagsVBox" unique_id=129299023]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+
+[node name="RemoveTagButton" type="Button" parent="HBoxContainer/MainPanel/ScrollContainer/Form/TagsVBox" unique_id=399165768]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Remover Tag Selecionada"
+
+[node name="ListsHBox" type="HBoxContainer" parent="HBoxContainer/MainPanel/ScrollContainer/Form" unique_id=1363231961]
+layout_mode = 2
+
+[node name="VBoxRest" type="VBoxContainer" parent="HBoxContainer/MainPanel/ScrollContainer/Form/ListsHBox" unique_id=711305143]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LabelRest" type="Label" parent="HBoxContainer/MainPanel/ScrollContainer/Form/ListsHBox/VBoxRest" unique_id=560901593]
+layout_mode = 2
+text = "Restrições"
+
+[node name="RestrictionsList" type="ItemList" parent="HBoxContainer/MainPanel/ScrollContainer/Form/ListsHBox/VBoxRest" unique_id=1508686352]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="RestButtons" type="HBoxContainer" parent="HBoxContainer/MainPanel/ScrollContainer/Form/ListsHBox/VBoxRest" unique_id=982656274]
+layout_mode = 2
+alignment = 1
+
+[node name="AddRestrictionButton" type="Button" parent="HBoxContainer/MainPanel/ScrollContainer/Form/ListsHBox/VBoxRest/RestButtons" unique_id=864623712]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Adicionar"
+
+[node name="RemoveRestrictionButton" type="Button" parent="HBoxContainer/MainPanel/ScrollContainer/Form/ListsHBox/VBoxRest/RestButtons" unique_id=1230286114]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Remover"
+
+[node name="VBoxMod" type="VBoxContainer" parent="HBoxContainer/MainPanel/ScrollContainer/Form/ListsHBox" unique_id=1151249]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LabelMod" type="Label" parent="HBoxContainer/MainPanel/ScrollContainer/Form/ListsHBox/VBoxMod" unique_id=107894794]
+layout_mode = 2
+text = "Modificadores"
+
+[node name="ModifiersList" type="ItemList" parent="HBoxContainer/MainPanel/ScrollContainer/Form/ListsHBox/VBoxMod" unique_id=1192242201]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ModButtons" type="HBoxContainer" parent="HBoxContainer/MainPanel/ScrollContainer/Form/ListsHBox/VBoxMod" unique_id=1922445653]
+layout_mode = 2
+alignment = 1
+
+[node name="AddModifierButton" type="Button" parent="HBoxContainer/MainPanel/ScrollContainer/Form/ListsHBox/VBoxMod/ModButtons" unique_id=684449879]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Adicionar"
+
+[node name="RemoveModifierButton" type="Button" parent="HBoxContainer/MainPanel/ScrollContainer/Form/ListsHBox/VBoxMod/ModButtons" unique_id=1856083271]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Remover"
+
+[node name="SaveButton" type="Button" parent="HBoxContainer/MainPanel/ScrollContainer/Form" unique_id=16853759]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_type_variation = &"ButtonSuccess"
+text = "Salvar Característica"
+
+[node name="ContextMenuHandler" type="Node" parent="." unique_id=670236412]
+script = ExtResource("2_arred")
+menu_scene = ExtResource("3_kreb3")
+metadata/_custom_type_script = "uid://y54l21vn55mk"
+
+[node name="CharacteristicActionExecutor" type="Node" parent="." unique_id=1688790598]
+script = ExtResource("3_cptal")
+
+[node name="TagEditorController" type="Node" parent="." unique_id=392785165 node_paths=PackedStringArray("tag_option", "add_tag_button", "tags_list", "remove_tag_button")]
+script = ExtResource("4_tageditor")
+tag_option = NodePath("../HBoxContainer/MainPanel/ScrollContainer/Form/TagsVBox/TagsInputHBox/TagOption")
+add_tag_button = NodePath("../HBoxContainer/MainPanel/ScrollContainer/Form/TagsVBox/TagsInputHBox/AddTagButton")
+tags_list = NodePath("../HBoxContainer/MainPanel/ScrollContainer/Form/TagsVBox/TagsList")
+remove_tag_button = NodePath("../HBoxContainer/MainPanel/ScrollContainer/Form/TagsVBox/RemoveTagButton")
+
+[node name="RuleEditorController" type="Node" parent="." unique_id=375100690 node_paths=PackedStringArray("restrictions_list", "add_restriction_button", "remove_restriction_button", "modifiers_list", "add_modifier_button", "remove_modifier_button")]
+script = ExtResource("5_ruleeditor")
+restrictions_list = NodePath("../HBoxContainer/MainPanel/ScrollContainer/Form/ListsHBox/VBoxRest/RestrictionsList")
+add_restriction_button = NodePath("../HBoxContainer/MainPanel/ScrollContainer/Form/ListsHBox/VBoxRest/RestButtons/AddRestrictionButton")
+remove_restriction_button = NodePath("../HBoxContainer/MainPanel/ScrollContainer/Form/ListsHBox/VBoxRest/RestButtons/RemoveRestrictionButton")
+modifiers_list = NodePath("../HBoxContainer/MainPanel/ScrollContainer/Form/ListsHBox/VBoxMod/ModifiersList")
+add_modifier_button = NodePath("../HBoxContainer/MainPanel/ScrollContainer/Form/ListsHBox/VBoxMod/ModButtons/AddModifierButton")
+remove_modifier_button = NodePath("../HBoxContainer/MainPanel/ScrollContainer/Form/ListsHBox/VBoxMod/ModButtons/RemoveModifierButton")
+
+[node name="FileBrowserController" type="Node" parent="." unique_id=35703001 node_paths=PackedStringArray("file_list", "new_button", "new_folder_button", "context_menu_handler", "characteristic_action_executor")]
+script = ExtResource("6_filebrowser")
+file_list = NodePath("../HBoxContainer/Sidebar/FileList")
+new_button = NodePath("../HBoxContainer/Sidebar/HBoxButtons/NewButton")
+new_folder_button = NodePath("../HBoxContainer/Sidebar/HBoxButtons/NewFolderButton")
+context_menu_handler = NodePath("../ContextMenuHandler")
+characteristic_action_executor = NodePath("../CharacteristicActionExecutor")

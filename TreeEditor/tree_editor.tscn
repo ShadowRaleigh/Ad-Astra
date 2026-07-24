@@ -1,0 +1,168 @@
+[gd_scene format=3 uid="uid://bw5p82x0spayu"]
+
+[ext_resource type="Script" uid="uid://bjtj2ja5vhpit" path="res://TreeEditor/tree_editor.gd" id="1_script"]
+
+[node name="TreeEditor" type="Control" unique_id=2111141500]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_script")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1502255577]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Toolbar" type="HBoxContainer" parent="VBoxContainer" unique_id=310126571]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="VBoxContainer/Toolbar" unique_id=1930267224]
+layout_mode = 2
+text = "  Árvore:"
+
+[node name="TreeNameInput" type="LineEdit" parent="VBoxContainer/Toolbar" unique_id=710384021]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+
+[node name="NewNodeButton" type="Button" parent="VBoxContainer/Toolbar" unique_id=222781382]
+unique_name_in_owner = true
+layout_mode = 2
+text = "+ Adicionar Nó"
+
+[node name="ValidateButton" type="Button" parent="VBoxContainer/Toolbar" unique_id=1625227787]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Validar"
+
+[node name="OrganizeButton" type="Button" parent="VBoxContainer/Toolbar" unique_id=454834790]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Organizar"
+
+[node name="SaveButton" type="Button" parent="VBoxContainer/Toolbar" unique_id=1238195144]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"ButtonSuccess"
+text = "Salvar"
+
+[node name="LoadButton" type="Button" parent="VBoxContainer/Toolbar" unique_id=1156420342]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Carregar"
+
+[node name="GraphEdit" type="GraphEdit" parent="VBoxContainer" unique_id=1147143994]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+right_disconnects = true
+
+[node name="CharacteristicPicker" type="Window" parent="." unique_id=1739840835]
+unique_name_in_owner = true
+title = "Selecionar Característica"
+size = Vector2i(400, 500)
+visible = false
+exclusive = true
+
+[node name="PickerVBox" type="VBoxContainer" parent="CharacteristicPicker" unique_id=762919453]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PickerList" type="Tree" parent="CharacteristicPicker/PickerVBox" unique_id=1315542378]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+hide_root = true
+
+[node name="HBoxPickerButtons" type="HBoxContainer" parent="CharacteristicPicker/PickerVBox" unique_id=141455198]
+layout_mode = 2
+alignment = 1
+
+[node name="PickerCancel" type="Button" parent="CharacteristicPicker/PickerVBox/HBoxPickerButtons" unique_id=1581009601]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Cancelar"
+
+[node name="PickerSelect" type="Button" parent="CharacteristicPicker/PickerVBox/HBoxPickerButtons" unique_id=1286639033]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Selecionar"
+
+[node name="LoadDialog" type="Window" parent="." unique_id=86947465]
+unique_name_in_owner = true
+title = "Carregar Árvore"
+size = Vector2i(400, 500)
+visible = false
+exclusive = true
+
+[node name="LoadVBox" type="VBoxContainer" parent="LoadDialog" unique_id=2047381962]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LoadList" type="Tree" parent="LoadDialog/LoadVBox" unique_id=1342916529]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+hide_root = true
+
+[node name="HBoxLoadButtons" type="HBoxContainer" parent="LoadDialog/LoadVBox" unique_id=1860370532]
+layout_mode = 2
+alignment = 1
+
+[node name="LoadCancel" type="Button" parent="LoadDialog/LoadVBox/HBoxLoadButtons" unique_id=1124036352]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Cancelar"
+
+[node name="LoadConfirm" type="Button" parent="LoadDialog/LoadVBox/HBoxLoadButtons" unique_id=56620177]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Carregar"
+
+[node name="NotificationPanel" type="PanelContainer" parent="." unique_id=987654321]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = -100.0
+offset_right = 320.0
+offset_bottom = -20.0
+grow_vertical = 0
+mouse_filter = 2
+
+[node name="NotifVBox" type="VBoxContainer" parent="NotificationPanel" unique_id=1691577326]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="NotifTitleLabel" type="Label" parent="NotificationPanel/NotifVBox" unique_id=1792218428]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+text = "Árvore Salva com Sucesso!"
+
+[node name="NotifPathLabel" type="Label" parent="NotificationPanel/NotifVBox" unique_id=478389744]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Caminho: ..."
+
+[node name="NotifTimer" type="Timer" parent="NotificationPanel" unique_id=20932237]
+unique_name_in_owner = true
+wait_time = 4.0
+one_shot = true
